@@ -1,4 +1,5 @@
 import { CollectionConfig } from "payload/types";
+import { slugField } from "../fields/slug";
 
 const Articles: CollectionConfig = {
   slug: "articles",
@@ -67,12 +68,7 @@ const Articles: CollectionConfig = {
         },
       ],
     },
-    {
-      name: "slug",
-      label: "Slug",
-      type: "text",
-      required: true,
-    },
+    slugField(),
   ],
 };
 

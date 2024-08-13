@@ -44,7 +44,7 @@ export default buildConfig({
     schemaOutputFile: path.resolve(__dirname, "generated-schema.graphql"),
   },
   plugins: [
-    cloudStorage({
+    /* cloudStorage({
       collections: {
         images: {
           adapter: s3Adapter({
@@ -59,7 +59,7 @@ export default buildConfig({
           }),
         },
       },
-    }),
+    }), */
   ],
 
   db: mongooseAdapter({
