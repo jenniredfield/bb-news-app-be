@@ -18,15 +18,13 @@ const TitleWithSlug: React.FC = () => {
   }, [title, setSlug]);
 
   return (
-    <div>
-      <TextInput
-        path="title"
-        name="title"
-        label="Title"
-        value={title || ""}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-    </div>
+    <TextInput
+      path="title"
+      name="title"
+      label="Title"
+      value={title || ""}
+      onChange={(e) => setTitle(e.target.value)}
+    />
   );
 };
 
