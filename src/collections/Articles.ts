@@ -1,4 +1,6 @@
 import { CollectionConfig } from "payload/types";
+import { slugField } from "../fields/slug";
+import TitleWithSlug from "../_components/titleWithSlug";
 
 const Articles: CollectionConfig = {
   slug: "articles",
@@ -14,6 +16,11 @@ const Articles: CollectionConfig = {
       name: "title",
       label: "Title",
       type: "text",
+      admin: {
+        components: {
+          Field: TitleWithSlug,
+        },
+      },
       required: true,
     },
     {
@@ -67,12 +74,7 @@ const Articles: CollectionConfig = {
         },
       ],
     },
-    {
-      name: "slug",
-      label: "Slug",
-      type: "text",
-      required: true,
-    },
+    slugField(),
   ],
 };
 
