@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useField } from "payload/components/forms";
+import { Textarea, TextareaInput, useField } from "payload/components/forms";
 import { TextInput } from "payload/components/forms";
 
 const TitleWithSlug: React.FC = () => {
@@ -25,15 +25,13 @@ const TitleWithSlug: React.FC = () => {
   }, [title, setSlug]);
 
   return (
-    <div>
-      <TextInput
-        path="title"
-        name="title"
-        label="Title"
-        value={title || ""}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-    </div>
+    <TextInput
+      path="title"
+      name="title"
+      label="Title"
+      value={title || ""}
+      onChange={(e) => setTitle(e.target.value)}
+    />
   );
 };
 
