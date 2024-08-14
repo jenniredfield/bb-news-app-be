@@ -1,11 +1,14 @@
 import { FieldHook } from "payload/types";
 
-const format = (val: string): string =>
+export const format = (val: string): string =>
   val
+    .toLowerCase()
     .normalize("NFD")
-    .replace(/ /g, "-")
-    .replace(/[^\w-]+/g, "")
-    .toLowerCase();
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9 -]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .trim();
 
 const formatSlug =
   (fallback: string): FieldHook =>

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useField } from "payload/components/forms";
-import { TextInput } from "payload/components/forms";
+import { useField, TextInput } from "payload/components/forms";
+import { format } from "../utilities/formatSlug";
 
 const TitleWithSlug: React.FC = () => {
   const { value: title, setValue: setTitle } = useField<string>({
@@ -12,14 +12,7 @@ const TitleWithSlug: React.FC = () => {
   });
 
   useEffect(() => {
-    const generatedSlug = title
-      ?.toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9 -]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/-+/g, "-")
-      .trim();
+    const generatedSlug = format(title || "");
 
     setSlug(generatedSlug || "");
   }, [title, setSlug]);
